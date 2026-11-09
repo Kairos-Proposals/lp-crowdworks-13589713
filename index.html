@@ -1,0 +1,467 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Kairos Proposal — シマジ. 様 ブランドサイト制作のご提案</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Shippori+Mincho:wght@400;500;600;700&family=Zen+Kaku+Gothic+New:wght@300;400;500;700&family=Cormorant+Garamond:ital,wght@0,400;0,500;1,400&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --paper:#F7F5F0;
+    --paper-soft:#EFEDE6;
+    --ink:#201E1A;
+    --stone:#79736A;
+    --sage:#5C6B52;
+    --steam:#8C9BA6;
+    --clay:#AD7A5C;
+  }
+  *{box-sizing:border-box;margin:0;padding:0;}
+  html{scroll-behavior:smooth;}
+  body{
+    background:var(--paper);
+    color:var(--ink);
+    font-family:'Zen Kaku Gothic New','Noto Sans JP',sans-serif;
+    font-weight:300;
+    line-height:1.9;
+    -webkit-font-smoothing:antialiased;
+    overflow-x:hidden;
+  }
+  h1,h2,h3,.serif{
+    font-family:'Shippori Mincho',serif;
+    font-weight:600;
+    letter-spacing:.04em;
+  }
+  .en{
+    font-family:'Cormorant Garamond',serif;
+    letter-spacing:.18em;
+  }
+  a{color:inherit;text-decoration:none;}
+  img{display:none;}
+  .wrap{max-width:1040px;margin:0 auto;padding:0 28px;}
+
+  /* grain overlay */
+  .grain{
+    position:fixed;inset:0;pointer-events:none;z-index:999;opacity:.035;
+    background-image:repeating-linear-gradient(0deg,#000 0 1px,transparent 1px 2px),
+                      repeating-linear-gradient(90deg,#000 0 1px,transparent 1px 2px);
+    mix-blend-mode:multiply;
+  }
+
+  /* ===== HERO ===== */
+  .hero{
+    position:relative;
+    min-height:100vh;
+    background:linear-gradient(175deg,#1B1916 0%,#242019 55%,#2C2318 100%);
+    color:var(--paper);
+    display:flex;
+    align-items:center;
+    overflow:hidden;
+  }
+  .steam{
+    position:absolute;border-radius:50%;
+    filter:blur(50px);
+    opacity:.35;
+    background:radial-gradient(circle,var(--steam),transparent 70%);
+    animation:rise 14s ease-in-out infinite;
+  }
+  .steam.s1{width:340px;height:340px;left:-80px;top:10%;animation-delay:0s;}
+  .steam.s2{width:420px;height:420px;right:-120px;top:40%;background:radial-gradient(circle,var(--clay),transparent 70%);animation-delay:3s;opacity:.18;}
+  .steam.s3{width:260px;height:260px;left:30%;bottom:-100px;background:radial-gradient(circle,var(--sage),transparent 70%);animation-delay:6s;opacity:.22;}
+  @keyframes rise{
+    0%,100%{transform:translateY(0) scale(1);}
+    50%{transform:translateY(-30px) scale(1.07);}
+  }
+  .hero-inner{position:relative;z-index:2;width:100%;padding:120px 28px 90px;}
+  .badge{
+    display:inline-flex;align-items:center;gap:10px;
+    font-size:11px;letter-spacing:.3em;
+    border:1px solid rgba(247,245,240,.35);
+    padding:8px 18px;border-radius:40px;
+    color:#E5E1D6;
+    margin-bottom:38px;
+  }
+  .badge::before{content:"";width:6px;height:6px;border-radius:50%;background:var(--clay);}
+  .hero h1{
+    font-size:clamp(34px,7.2vw,68px);
+    line-height:1.5;
+    color:var(--paper);
+    margin-bottom:28px;
+  }
+  .hero h1 span{color:#C8B9A0;display:block;}
+  .hero p.lead{
+    max-width:480px;
+    font-size:15px;
+    color:#C9C4B8;
+    font-weight:300;
+    margin-bottom:46px;
+  }
+  .hero-footer{
+    display:flex;justify-content:space-between;align-items:flex-end;
+    flex-wrap:wrap;gap:24px;
+    border-top:1px solid rgba(247,245,240,.15);
+    padding-top:26px;
+  }
+  .hero-footer .target{font-size:12px;letter-spacing:.08em;color:#A79F8E;}
+  .hero-footer .for{font-size:13px;letter-spacing:.06em;color:#D8D2C2;}
+  .scroll-cue{
+    position:absolute;right:28px;bottom:36px;z-index:2;
+    writing-mode:vertical-rl;
+    font-size:11px;letter-spacing:.3em;color:#9B9384;
+    display:flex;align-items:center;gap:10px;
+  }
+  .scroll-cue::after{content:"";width:1px;height:46px;background:#9B9384;}
+
+  /* ===== SECTION COMMON ===== */
+  section{padding:110px 0;position:relative;}
+  .eyebrow{
+    font-size:11px;letter-spacing:.35em;color:var(--stone);
+    display:flex;align-items:center;gap:14px;margin-bottom:24px;
+  }
+  .eyebrow::before{content:"";width:34px;height:1px;background:var(--clay);}
+  .sec-title{font-size:clamp(26px,4vw,38px);margin-bottom:22px;}
+  .sec-lead{max-width:620px;color:var(--stone);font-size:15px;}
+
+  /* ===== UNDERSTANDING ===== */
+  .understand{background:var(--paper);}
+  .understand-grid{
+    display:grid;grid-template-columns:1.1fr .9fr;gap:60px;align-items:start;margin-top:56px;
+  }
+  .quote-block{
+    background:var(--ink);color:var(--paper);
+    padding:46px 40px;border-radius:2px;
+    position:relative;
+  }
+  .quote-block::before{
+    content:"”";font-family:'Shippori Mincho',serif;
+    position:absolute;top:10px;left:24px;font-size:70px;color:rgba(247,245,240,.12);
+  }
+  .quote-block p{
+    font-family:'Shippori Mincho',serif;
+    font-size:19px;line-height:2.1;
+    position:relative;z-index:1;
+  }
+  .quote-block p span{color:#C8B9A0;}
+  .point-list{display:flex;flex-direction:column;gap:22px;}
+  .point{
+    display:flex;gap:16px;padding:20px 0;border-bottom:1px solid var(--paper-soft);
+  }
+  .point .num{font-family:'Cormorant Garamond',serif;font-size:22px;color:var(--clay);width:36px;flex-shrink:0;}
+  .point .txt b{display:block;font-size:15px;margin-bottom:6px;letter-spacing:.03em;}
+  .point .txt span{font-size:13px;color:var(--stone);}
+
+  /* ===== VALUE CARDS ===== */
+  .values{background:var(--paper-soft);}
+  .card-grid{
+    display:grid;grid-template-columns:repeat(3,1fr);gap:2px;
+    margin-top:56px;background:var(--ink);
+  }
+  .card{
+    background:var(--paper);padding:42px 30px;min-height:260px;
+    display:flex;flex-direction:column;justify-content:space-between;
+    transition:background .4s ease;
+  }
+  .card:hover{background:#FBFAF6;}
+  .card .mark{font-family:'Cormorant Garamond',serif;font-size:14px;color:var(--steam);letter-spacing:.2em;}
+  .card h3{font-size:18px;margin:18px 0 12px;}
+  .card p{font-size:13.5px;color:var(--stone);line-height:1.85;}
+
+  /* ===== MOCKUP PREVIEW ===== */
+  .preview{background:var(--paper);}
+  .preview-inner{
+    display:grid;grid-template-columns:.9fr 1.1fr;gap:70px;align-items:center;margin-top:60px;
+  }
+  .phone{
+    width:230px;height:470px;margin:0 auto;
+    border:10px solid var(--ink);border-radius:34px;
+    background:#fff;position:relative;overflow:hidden;
+    box-shadow:0 30px 60px -20px rgba(32,30,26,.35);
+  }
+  .phone .notch{
+    position:absolute;top:0;left:50%;transform:translateX(-50%);
+    width:70px;height:16px;background:var(--ink);border-radius:0 0 12px 12px;z-index:5;
+  }
+  .screen{height:100%;display:flex;flex-direction:column;}
+  .blk{flex-shrink:0;position:relative;display:flex;flex-direction:column;justify-content:center;align-items:center;}
+  .blk span{font-size:8px;letter-spacing:.15em;color:rgba(0,0,0,.4);position:absolute;top:6px;left:8px;}
+  .blk.fv{height:34%;background:linear-gradient(160deg,#2B271F,#4A4233);color:#EDE8DC;}
+  .blk.fv .title{font-family:'Shippori Mincho',serif;font-size:13px;letter-spacing:.2em;}
+  .blk.concept{height:16%;background:#F4F1EA;}
+  .blk.concept .line{width:60%;height:3px;background:#C9C1AE;margin:3px 0;}
+  .blk.menu{height:22%;background:#fff;display:grid;grid-template-columns:repeat(2,1fr);padding:14px 10px 0;gap:6px;}
+  .menu-chip{background:#F1EEE6;border-radius:3px;display:flex;align-items:center;justify-content:center;font-size:7px;color:#8a8373;}
+  .blk.access{height:14%;background:#ECEFE9;}
+  .blk.insta{height:14%;background:#fff;display:grid;grid-template-columns:repeat(4,1fr);padding:10px;gap:4px;}
+  .insta-cell{background:linear-gradient(135deg,#D9D2C2,#B9AF9A);border-radius:2px;}
+  .preview-text .sec-title{margin-bottom:18px;}
+  .tag-row{display:flex;flex-wrap:wrap;gap:10px;margin-top:26px;}
+  .tag{
+    font-size:11.5px;letter-spacing:.06em;color:var(--sage);
+    border:1px solid #C9D1C2;padding:7px 14px;border-radius:30px;background:#F2F5EE;
+  }
+
+  /* ===== PROCESS ===== */
+  .process{background:var(--ink);color:var(--paper);}
+  .process .eyebrow{color:#A79F8E;}
+  .process .eyebrow::before{background:var(--clay);}
+  .process .sec-lead{color:#A79F8E;}
+  .timeline{margin-top:60px;display:flex;flex-direction:column;}
+  .tl-item{
+    display:grid;grid-template-columns:90px 1fr;gap:28px;padding:30px 0;
+    border-top:1px solid rgba(247,245,240,.12);
+  }
+  .tl-item:last-child{border-bottom:1px solid rgba(247,245,240,.12);}
+  .tl-day{font-family:'Cormorant Garamond',serif;font-size:26px;color:#C8B9A0;}
+  .tl-body b{display:block;font-size:16px;margin-bottom:6px;letter-spacing:.03em;}
+  .tl-body span{font-size:13px;color:#A79F8E;}
+
+  /* ===== CLOSING ===== */
+  .closing{
+    background:linear-gradient(175deg,#242019,#1B1916);
+    color:var(--paper);text-align:center;
+    padding:130px 0;
+  }
+  .closing .en{display:block;color:#8C8471;font-size:13px;margin-bottom:22px;}
+  .closing h2{font-size:clamp(28px,5.5vw,46px);margin-bottom:26px;}
+  .closing p{color:#B9B2A0;max-width:460px;margin:0 auto 46px;font-size:14.5px;}
+  .cta-btn{
+    display:inline-flex;align-items:center;gap:14px;
+    padding:18px 42px;border:1px solid #D8D2C2;border-radius:40px;
+    font-size:13px;letter-spacing:.2em;color:var(--paper);
+    transition:all .4s ease;
+  }
+  .cta-btn:hover{background:var(--paper);color:var(--ink);}
+  .footer-note{margin-top:60px;font-size:11px;color:#6E6859;letter-spacing:.15em;}
+
+  @media(max-width:860px){
+    .understand-grid{grid-template-columns:1fr;gap:36px;}
+    .card-grid{grid-template-columns:1fr;}
+    .preview-inner{grid-template-columns:1fr;gap:44px;}
+    .tl-item{grid-template-columns:60px 1fr;}
+  }
+  @media(max-width:520px){
+    section{padding:80px 0;}
+    .hero-inner{padding:110px 20px 70px;}
+    .hero-footer{flex-direction:column;align-items:flex-start;}
+    .scroll-cue{display:none;}
+    .quote-block{padding:34px 24px;}
+    .phone{width:200px;height:410px;}
+  }
+</style>
+</head>
+<body>
+
+<div class="grain"></div>
+
+<!-- HERO -->
+<section class="hero">
+  <div class="steam s1"></div>
+  <div class="steam s2"></div>
+  <div class="steam s3"></div>
+  <div class="hero-inner">
+    <span class="badge en">KAIROS PROPOSAL</span>
+    <h1>静けさは、<span>味になる。</span></h1>
+    <p class="lead">
+      スペシャルティコーヒーと自家製ベイクの時間を、画面越しに。
+      シマジ. 様の公式ブランドサイト制作にあたり、
+      余白と呼吸でつくるスマホファーストのデザインをご提案いたします。
+    </p>
+    <div class="hero-footer">
+      <span class="target">FOR &nbsp;20s–30s &nbsp;／&nbsp; カフェ巡りを愉しむ感度の高い女性層へ</span>
+      <span class="for">Kairos — Web制作・システム開発チーム</span>
+    </div>
+  </div>
+  <div class="scroll-cue">SCROLL</div>
+</section>
+
+<!-- UNDERSTANDING -->
+<section class="understand">
+  <div class="wrap">
+    <div class="eyebrow en">UNDERSTANDING</div>
+    <h2 class="sec-title">無機質で、静かで、確かな一杯のために。</h2>
+    <p class="sec-lead">
+      今回のご依頼を拝見し、求められているのは「装飾」ではなく「余白の設計」だと理解しております。
+      豆の産地や焼き菓子の仕込みに込めたこだわりを、派手さではなく"間"で伝える。
+      その繊細な温度感を、スマートフォンという最も小さな画面の中に丁寧に収めることが、今回の本質だと考えています。
+    </p>
+
+    <div class="understand-grid">
+      <div class="quote-block">
+        <p>
+          「流入の大部分はスマホ」<br>
+          という事実を前提に、<span>PCの縮小版ではない</span>、
+          スマホという一枚のキャンバスのために最初から設計されたレイアウトを。
+        </p>
+      </div>
+
+      <div class="point-list">
+        <div class="point">
+          <div class="num">01</div>
+          <div class="txt">
+            <b>静けさの演出</b>
+            <span>白・淡いニュートラルカラーと余白設計で、情報を詰め込まず"間"で魅せる構成に。</span>
+          </div>
+        </div>
+        <div class="point">
+          <div class="num">02</div>
+          <div class="txt">
+            <b>タイポグラフィの翻訳</b>
+            <span>和文と欧文のペアリング、行間・字間までこだわり、空気感を文字で表現します。</span>
+          </div>
+        </div>
+        <div class="point">
+          <div class="num">03</div>
+          <div class="txt">
+            <b>受け渡し後を見据えた設計</b>
+            <span>コーディングは別工程という前提を理解し、実装しやすいレイヤー構成でお渡しします。</span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- VALUES -->
+<section class="values">
+  <div class="wrap">
+    <div class="eyebrow en">WHAT WE PROVIDE</div>
+    <h2 class="sec-title">Kairosが、ご提供できる価値。</h2>
+    <p class="sec-lead">デザインカンプのご依頼に対し、単なる見た目の制作にとどまらない５つの価値をお約束します。</p>
+  </div>
+
+  <div class="card-grid wrap" style="padding:0;">
+    <div class="card">
+      <span class="mark">01 / MOBILE FIRST</span>
+      <h3>スマホファースト設計</h3>
+      <p>親指の動線・スクロール速度・視線移動を想定し、PCからの縮小ではなくスマホ単位で情報設計を組み立てます。</p>
+    </div>
+    <div class="card">
+      <span class="mark">02 / TYPOGRAPHY</span>
+      <h3>余白とタイポグラフィ</h3>
+      <p>行間・字間・フォントの選定まで、"静けさ"という抽象的な世界観を具体的なピクセルに落とし込みます。</p>
+    </div>
+    <div class="card">
+      <span class="mark">03 / HANDOFF</span>
+      <h3>コーダー受け渡し設計</h3>
+      <p>レイヤー整理・命名規則・簡易仕様書を添えて納品。実装フェーズでの手戻りを最小限にします。</p>
+    </div>
+    <div class="card">
+      <span class="mark">04 / BRAND VOICE</span>
+      <h3>ブランド世界観の翻訳</h3>
+      <p>ライフスタイル・アパレル領域のデザイン経験を活かし、空間の空気感をスクリーン上に再構築します。</p>
+    </div>
+    <div class="card">
+      <span class="mark">05 / FLEXIBLE</span>
+      <h3>柔軟な修正対応</h3>
+      <p>初回提案後のご意見交換を前提に、ご予算内で納得いただけるまで丁寧にラウンドを重ねます。</p>
+    </div>
+    <div class="card" style="background:var(--ink);color:var(--paper);">
+      <span class="mark" style="color:#C8B9A0;">— </span>
+      <h3 style="color:#EDE8DC;">一杯の背景にある<br>時間ごと、設計する。</h3>
+      <p style="color:#B9B2A0;">見た目の美しさだけでなく、訪れる人の気持ちの動きごとデザインします。</p>
+    </div>
+  </div>
+</section>
+
+<!-- PREVIEW MOCKUP -->
+<section class="preview">
+  <div class="wrap preview-inner">
+    <div class="phone">
+      <div class="notch"></div>
+      <div class="screen">
+        <div class="blk fv"><span>FIRST VIEW</span><div class="title">— signature —</div></div>
+        <div class="blk concept"><span>BRAND CONCEPT</span><div class="line"></div><div class="line" style="width:40%;"></div></div>
+        <div class="blk menu"><span>SIGNATURE MENU</span>
+          <div class="menu-chip">COFFEE</div><div class="menu-chip">LATTE</div>
+          <div class="menu-chip">BAKE</div><div class="menu-chip">SEASONAL</div>
+        </div>
+        <div class="blk access"><span>ACCESS / INFO</span></div>
+        <div class="blk insta"><span>INSTAGRAM</span>
+          <div class="insta-cell"></div><div class="insta-cell"></div>
+          <div class="insta-cell"></div><div class="insta-cell"></div>
+        </div>
+      </div>
+    </div>
+
+    <div class="preview-text">
+      <div class="eyebrow en">STRUCTURE PREVIEW</div>
+      <h2 class="sec-title">想定するページ構成（簡易イメージ）</h2>
+      <p class="sec-lead">
+        ご提示いただいた構成案をもとに、1ページ完結のブランドLPをスマホ・PC両対応でカンプ化します。
+        右の簡易モックアップはイメージのご共有用です。実際は店舗写真・ブランドガイドを拝見後、
+        精度の高いデザインに仕上げます。
+      </p>
+      <div class="tag-row">
+        <span class="tag">First View</span>
+        <span class="tag">Brand Concept</span>
+        <span class="tag">Signature Menu</span>
+        <span class="tag">Information & Access</span>
+        <span class="tag">Instagram Feed</span>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- PROCESS -->
+<section class="process">
+  <div class="wrap">
+    <div class="eyebrow en">PROCESS</div>
+    <h2 class="sec-title">進め方とスケジュールイメージ</h2>
+    <p class="sec-lead">ご契約からおよそ2週間を想定した、無理のない制作フローです。資料共有のタイミングに応じて前後いたします。</p>
+
+    <div class="timeline">
+      <div class="tl-item">
+        <div class="tl-day en">01–02</div>
+        <div class="tl-body">
+          <b>ヒアリング・資料共有</b>
+          <span>店舗の詳細、写真素材、ブランドガイド等を共有いただき、世界観の解像度を合わせます。</span>
+        </div>
+      </div>
+      <div class="tl-item">
+        <div class="tl-day en">03–05</div>
+        <div class="tl-body">
+          <b>構成・ラフ設計</b>
+          <span>情報設計とワイヤーフレームを作成し、スマホでの体験導線を固めます。</span>
+        </div>
+      </div>
+      <div class="tl-item">
+        <div class="tl-day en">06–10</div>
+        <div class="tl-body">
+          <b>デザインカンプ制作（PC/SP）</b>
+          <span>タイポグラフィ・余白・配色を詰め、全ページのビジュアルデザインを作成します。</span>
+        </div>
+      </div>
+      <div class="tl-item">
+        <div class="tl-day en">11–12</div>
+        <div class="tl-body">
+          <b>ブラッシュアップ</b>
+          <span>フィードバックをもとに微調整。細部のこだわりを最後まで磨き込みます。</span>
+        </div>
+      </div>
+      <div class="tl-item">
+        <div class="tl-day en">13</div>
+        <div class="tl-body">
+          <b>納品</b>
+          <span>Figmaデータにて、コーダー受け渡しを考慮した整理済みデータを納品いたします。</span>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- CLOSING -->
+<section class="closing">
+  <div class="wrap">
+    <span class="en">LET'S CREATE QUIETNESS, TOGETHER</span>
+    <h2>静けさのある一杯を、<br>画面にも。</h2>
+    <p>
+      世界観を大切に、細部までこだわったサイトを一緒に作り上げていきたいと考えております。
+      まずはメッセージにて、どうぞお気軽にお声がけください。
+    </p>
+    <a href="#" class="cta-btn">ご提案メッセージを送る →</a>
+    <div class="footer-note en">KAIROS — WEB DESIGN & DEVELOPMENT TEAM</div>
+  </div>
+</section>
+
+</body>
+</html>
